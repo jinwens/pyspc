@@ -38,6 +38,7 @@ class cusum(ccharts):
         target = self.target
         std = self.std
         interval = self.interval
+        k = self.k
 
         if target is None:
             target = np.mean(data)
