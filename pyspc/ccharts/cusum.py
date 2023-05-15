@@ -28,6 +28,7 @@ class cusum(ccharts):
         self.target = target
         self.std = std
         self.interval = interval
+        self.k = k
 
     def plot(self, data, size, newdata=None):
 
