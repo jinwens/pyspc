@@ -22,7 +22,7 @@ class cusum(ccharts):
 
     _title = "CUSUM Chart"
 
-    def __init__(self, target=None, std=None, interval=4):
+    def __init__(self, target=None, std=None, k=None, interval=4):
         super(cusum, self).__init__()
 
         self.target = target
@@ -45,9 +45,10 @@ class cusum(ccharts):
             rbar = []
             for i in range(len(data) - 1):
                 rbar.append(abs(data[i] - data[i + 1]))
-            std = np.mean(rbar) / d2[2]
-
-        k = std / 2
+            std = np.mean(rbar) / d2[size]
+        
+        if k is None:
+            k = std * interval / 2
 
         cplus = []  # values
         cminus = []  # values
